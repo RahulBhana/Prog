@@ -9,7 +9,7 @@
         Background="#282828">
 
     <Grid>
-        <Image Source="C:/Users/User/source/repos/MunicipleServiceApp/Images/PROGT.png"
+        <Image Source="pack://application:,,,/Images/PROGT.png"
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"
                Stretch="UniformToFill"
@@ -30,7 +30,7 @@
                                 CornerRadius="30" 
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:/Users/User/source/repos/MunicipleServiceApp/Images/Cloud.png" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="pack://application:,,,/Images/Cloud.png" Stretch="UniformToFill"/>
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
@@ -52,7 +52,7 @@
                                 CornerRadius="30"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:/Users/User/source/repos/MunicipleServiceApp/Images/Cloud.png" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="pack://application:,,,/Images/Cloud.png" Stretch="UniformToFill"/>
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
@@ -73,7 +73,7 @@
                                 CornerRadius="30"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <Border.Background>
-                                <ImageBrush ImageSource="C:/Users/User/source/repos/MunicipleServiceApp/Images/Cloud.png" Stretch="UniformToFill"/>
+                                <ImageBrush ImageSource="pack://application:,,,/Images/Cloud.png" Stretch="UniformToFill"/>
                             </Border.Background>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>

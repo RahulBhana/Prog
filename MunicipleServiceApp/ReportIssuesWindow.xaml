@@ -54,7 +54,7 @@
 
             <Image x:Name="imgPot" Width="344" Height="329"
                    HorizontalAlignment="Center"
-                   Stretch="Uniform" Source="C:\Users\User\source\repos\MunicipleServiceApp\Images\Pot1.png" Margin="20"/>
+                   Stretch="Uniform" Source="pack://application:,,,/Images/Pot1.png" Margin="20"/>
            
             <Button x:Name="btnMainMenu" Content="Back to Main Menu" Width="120" Height="28" 
                     Background="White" FontWeight="Bold" Click="btnMainMenu_Click"/>

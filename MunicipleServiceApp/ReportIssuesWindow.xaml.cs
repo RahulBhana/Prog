@@ -25,11 +25,11 @@ namespace MunicipleServiceApp
         {
             InitializeComponent();
 
-            Pot1 = new BitmapImage(new Uri("C:/Users/User/source/repos/MunicipleServiceApp/Images/Pot1.png", UriKind.RelativeOrAbsolute));
-            Pot2 = new BitmapImage(new Uri("C:/Users/User/source/repos/MunicipleServiceApp/Images/Pot2.png", UriKind.RelativeOrAbsolute));
-            Pot3 = new BitmapImage(new Uri("C:/Users/User/source/repos/MunicipleServiceApp/Images/Pot3.png", UriKind.RelativeOrAbsolute));
-            Pot4 = new BitmapImage(new Uri("C:/Users/User/source/repos/MunicipleServiceApp/Images/Pot4.png", UriKind.RelativeOrAbsolute));
-            Pot5 = new BitmapImage(new Uri("C:/Users/User/source/repos/MunicipleServiceApp/Images/Pot5.png", UriKind.RelativeOrAbsolute));
+            Pot1 = new BitmapImage(new Uri("pack://application:,,,/Images/Pot1.png"));
+            Pot2 = new BitmapImage(new Uri("pack://application:,,,/Images/Pot2.png"));
+            Pot3 = new BitmapImage(new Uri("pack://application:,,,/Images/Pot3.png"));
+            Pot4 = new BitmapImage(new Uri("pack://application:,,,/Images/Pot4.png"));
+            Pot5 = new BitmapImage(new Uri("pack://application:,,,/Images/Pot5.png"));
 
             imgPot.Source = Pot1;
 
