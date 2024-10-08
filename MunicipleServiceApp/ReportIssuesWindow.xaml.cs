@@ -10,8 +10,8 @@ namespace MunicipleServiceApp
 {
     public partial class ReportIssuesWindow : Window
     {
-        private string selectedImagePath;
-        private byte[] imageBytes;
+        private string? selectedImagePath;
+        private byte[]? imageBytes;
         private int submissionCount = 0; 
 
         

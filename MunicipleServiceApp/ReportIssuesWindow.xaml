@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:/Users/User/source/repos/MunicipleServiceApp/Images/RepIss.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="pack://application:,,,/Images/RepIss.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="1300">
