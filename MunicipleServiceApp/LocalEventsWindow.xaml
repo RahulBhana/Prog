@@ -42,9 +42,31 @@
                     </DatePicker.BorderBrush>
                 </DatePicker>
 
-                <Button Content="Search" Width="143" Height="28" Background="#FF102BC7" FontWeight="Bold" Margin="20,0,0,0" Click="Search_Click" BorderBrush="#FF102BC7"/>
+                <Button Content="Search" Width="143" Height="28" Background="LightBlue" FontWeight="Bold" Margin="20,0,0,0" Click="Search_Click" BorderBrush="#FF102BC7" Padding="1,1,1,1">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-                <Button Content="Get Recommendations" Width="150" Height="30" Background="LightBlue" FontWeight="Bold" Margin="20,0,0,0" Click="BtnGetRecommendations_Click"/>
+                <Button Content="Get Recommendations" Width="150" Height="30" Background="LightBlue" FontWeight="Bold" Margin="20,0,0,0" Click="BtnGetRecommendations_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="1" 
+                    CornerRadius="10">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
         </StackPanel>
 
