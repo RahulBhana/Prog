@@ -12,9 +12,9 @@ namespace MunicipleServiceApp
     {
         private string? selectedImagePath;
         private byte[]? imageBytes;
-        private int submissionCount = 0; 
+        private int submissionCount = 0;
 
-        
+
         private BitmapImage Pot1 { get; set; }
         private BitmapImage Pot2 { get; set; }
         private BitmapImage Pot3 { get; set; }
@@ -58,7 +58,7 @@ namespace MunicipleServiceApp
                 {
                     string extension = Path.GetExtension(selectedImagePath).ToLower();
 
-                    
+
                     if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".bmp")
                     {
                         imageBytes = File.ReadAllBytes(selectedImagePath);
@@ -68,14 +68,14 @@ namespace MunicipleServiceApp
                         bitmap.EndInit();
 
                         imgSelectedFile.Source = bitmap;
-                        imgSelectedFile.Visibility = Visibility.Visible; 
+                        imgSelectedFile.Visibility = Visibility.Visible;
                     }
                     else
                     {
-                        
-                        imageBytes = null; 
+
+                        imageBytes = null;
                         txtSelectedFile.Text = Path.GetFileName(selectedImagePath);
-                        txtSelectedFile.Visibility = Visibility.Visible; 
+                        txtSelectedFile.Visibility = Visibility.Visible;
                     }
 
                     MessageBox.Show("File attached successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -89,7 +89,7 @@ namespace MunicipleServiceApp
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-          
+
             if (string.IsNullOrEmpty(txtboxLocation.Text) ||
                 cboxCategory.SelectedItem == null ||
                 string.IsNullOrWhiteSpace(new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text))
@@ -103,7 +103,7 @@ namespace MunicipleServiceApp
                 MessageBox.Show("Please attach a file or image before submitting.", "File Missing", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            
+
             string location = txtboxLocation.Text;
             string category = cboxCategory.SelectedItem.ToString();
             string description = new TextRange(DescriptionBox.Document.ContentStart, DescriptionBox.Document.ContentEnd).Text.Trim();
@@ -119,19 +119,19 @@ namespace MunicipleServiceApp
             switch (submissionCount)
             {
                 case 0:
-                    imgPot.Source = Pot2; 
+                    imgPot.Source = Pot2;
                     break;
                 case 1:
-                    imgPot.Source = Pot3; 
+                    imgPot.Source = Pot3;
                     break;
                 case 2:
-                    imgPot.Source = Pot4; 
+                    imgPot.Source = Pot4;
                     break;
                 case 3:
-                    imgPot.Source = Pot5; 
+                    imgPot.Source = Pot5;
                     break;
                 case 4:
-                    btnSubmit.IsEnabled = false; 
+                    btnSubmit.IsEnabled = false;
                     ProgressBar.Value = 100;
                     MessageBox.Show("You have completed all submissions. The Submit button is now disabled.", "Submission Complete", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;

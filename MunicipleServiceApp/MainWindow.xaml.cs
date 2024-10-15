@@ -28,5 +28,11 @@ namespace MunicipleServiceApp
             this.Close();
         }
 
+        private void btnLocalStatus_Click(object sender, RoutedEventArgs e)
+        {
+            LocalEventsWindow localEventsWindow = new LocalEventsWindow();
+            localEventsWindow.Show();
+            this.Close();
+        }
     }
 }

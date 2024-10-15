@@ -1,0 +1,69 @@
+﻿<Window x:Class="MunicipleServiceApp.LocalEventsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Local Events" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="pack://application:,,,/Images/j92bu1kvqyh11.png"/>
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,20,0,5" HorizontalAlignment="Center" Width="841">
+            <TextBlock Text="Local Events" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                <TextBlock Text="Category:" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="White"/>
+                <ComboBox x:Name="categoryComboBox" Width="176" Height="22" Background="{x:Null}">
+                    <ComboBoxItem Content="All"/>
+                    <ComboBoxItem Content="Music"/>
+                    <ComboBoxItem Content="Sports"/>
+                    <ComboBoxItem Content="Community"/>
+                    <ComboBoxItem Content="Health"/>
+                    <ComboBoxItem Content="Technology"/>
+                </ComboBox>
+
+                <TextBlock Text="Date:" FontSize="16" VerticalAlignment="Center" Margin="20,0,10,0" Foreground="White"/>
+                <DatePicker x:Name="eventDatePicker" Width="184" Height="24">
+                    <DatePicker.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                            <GradientStop Color="#FFA3AEB9"/>
+                            <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                            <GradientStop Color="#FF718597" Offset="0.375"/>
+                            <GradientStop Color="#FF102BC7" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DatePicker.BorderBrush>
+                </DatePicker>
+
+                <Button Content="Search" Width="143" Height="28" Background="#FF102BC7" FontWeight="Bold" Margin="20,0,0,0" Click="Search_Click" BorderBrush="#FF102BC7"/>
+
+                <Button Content="Get Recommendations" Width="150" Height="30" Background="LightBlue" FontWeight="Bold" Margin="20,0,0,0" Click="BtnGetRecommendations_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="eventsPanel" Margin="20">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="0,10" Padding="10" Background="Transparent">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                                <TextBlock Text="{Binding Date}" FontSize="16" Foreground="White"/>
+                                <TextBlock Text="{Binding Category}" FontSize="16" Foreground="White"/>
+                                <TextBlock Text="{Binding Location}" FontSize="16" Foreground="White" Margin="0,5,0,0"/>
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
