@@ -104,5 +104,12 @@ namespace MunicipleServiceApp
             recommendationsWindow.Show();
             this.Close();
         }
+
+        private void BackToMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow(); 
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

@@ -87,5 +87,8 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+
+        <Button Content="Back to Main Menu" Grid.Row="1" Width="200" HorizontalAlignment="Center" 
+                Background="Transparent" Foreground="White" BorderBrush="Transparent" Click="BackToMainMenu_Click" FontWeight="Bold" Margin="0,409,0,0"/>
     </Grid>
 </Window>
