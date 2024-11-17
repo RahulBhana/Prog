@@ -14,9 +14,17 @@ namespace MunicipleServiceApp.Models
         public string Status { get; set; }
         public DateTime LastUpdated { get; set; }
 
+        // List of dependencies (Adjacent nodes in the graph)
+        public List<ServiceRequest> Dependencies { get; set; }
+
+        public ServiceRequest()
+        {
+            Dependencies = new List<ServiceRequest>();
+        }
+
         public int CompareTo(ServiceRequest other)
         {
-            return ID.CompareTo(other.ID);
+            return ID.CompareTo(other.ID); // Sorting by ID by default
         }
     }
 }

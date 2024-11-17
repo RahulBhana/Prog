@@ -2,22 +2,26 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Service Request Status" Height="600" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Background="#2F2F2F">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Images/Terraine.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Header -->
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Content="Back to Main Menu" Width="150" Height="40" Background="#FF6C6C" Foreground="White" FontWeight="Bold"
+            <Button Content="Back to Main Menu" Width="150" Height="40" Background="#FF6C6C" Foreground="Black" FontWeight="Bold"
                     Click="BackToMainMenu_Click" />
             <TextBlock Text="Service Request Status" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"
                        VerticalAlignment="Center" Margin="100,0,0,0" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="103,9,-83,11">
+
             <Grid>
                 <TextBlock Text="Request ID" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"
                            IsHitTestVisible="False" x:Name="PlaceholderRequestID" />
@@ -31,8 +35,10 @@
                 <ComboBoxItem Content="Electricity Outage" />
                 <ComboBoxItem Content="Potholes" />
             </ComboBox>
+
             <DatePicker x:Name="datePicker" Width="150" Height="30" Margin="0,0,10,0" />
-            <Button Content="Search" Width="100" Height="30" Background="#4CA9F2" Foreground="White" Click="Search_Click" />
+
+            <Button Content="Search" Width="100" Height="30" Background="#4CA9F2" Foreground="Black" Click="Search_Click" />
             <Button Content="Reset" Width="100" Height="30" Background="#C0C0C0" Foreground="Black" Click="Reset_Click" />
         </StackPanel>
 
@@ -48,15 +54,15 @@
             </StackPanel>
 
             <DataGrid x:Name="serviceRequestGrid" Grid.Column="1" AutoGenerateColumns="False" HeadersVisibility="Column"
-                      Background="White" Foreground="Black" BorderBrush="Black" BorderThickness="1">
+                      Background="White" Foreground="Black" BorderBrush="#FF6C6C" BorderThickness="2"
+                      SelectionChanged="serviceRequestGrid_SelectionChanged" Margin="0,0,0,227">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Request ID" Binding="{Binding ID}" Width="100" />
                     <DataGridTextColumn Header="Request Type" Binding="{Binding Category}" Width="150" />
                     <DataGridTextColumn Header="Submission Date" Binding="{Binding SubmissionDate}" Width="150" />
                     <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100" />
-                    <DataGridTextColumn Header="Last Updated" Binding="{Binding LastUpdated}" Width="150" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
     </Grid>
-</Window>
+</Window>  

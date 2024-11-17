@@ -20,6 +20,7 @@
     <None Remove="Images\PROGT.png" />
     <None Remove="Images\RepIss.png" />
     <None Remove="Images\TCave.png" />
+    <None Remove="Images\Terraine.png" />
     <None Remove="Pot1.png" />
   </ItemGroup>
 
@@ -36,6 +37,7 @@
     <Resource Include="Images\PROGT.png" />
     <Resource Include="Images\RepIss.png" />
     <Resource Include="Images\TCave.png" />
+    <Resource Include="Images\Terraine.png" />
   </ItemGroup>
 
 </Project>
