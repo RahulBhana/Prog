@@ -34,5 +34,12 @@ namespace MunicipleServiceApp
             localEventsWindow.Show();
             this.Close();
         }
+
+        private void btnServiceRequestStatus_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceRequestStatusWindow statusWindow = new ServiceRequestStatusWindow();
+            statusWindow.Show();
+            this.Close();
+        }
     }
 }
