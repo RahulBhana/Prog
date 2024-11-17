@@ -7,7 +7,7 @@
         Title="Local Events" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
 
     <Window.Background>
-        <ImageBrush ImageSource="pack://application:,,,/Images/j92bu1kvqyh11.png"/>
+        <ImageBrush ImageSource="pack://application:,,,/Images/Corruption.png"/>
     </Window.Background>
 
     <Grid>
@@ -89,6 +89,6 @@
         </ScrollViewer>
 
         <Button Content="Back to Main Menu" Grid.Row="1" Width="200" HorizontalAlignment="Center" 
-                Background="Transparent" Foreground="White" BorderBrush="Transparent" Click="BackToMainMenu_Click" FontWeight="Bold" Margin="0,409,0,0"/>
+                Background="Transparent" Foreground="White" BorderBrush="Transparent" Click="BackToMainMenu_Click" FontWeight="Bold" Margin="0,399,0,10"/>
     </Grid>
 </Window>
