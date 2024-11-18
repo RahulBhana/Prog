@@ -45,19 +45,30 @@ namespace MunicipleServiceApp
                 string selectedCategory = (categoryComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
                 DateTime? selectedDate = eventDatePicker.SelectedDate;
 
-                filteredEvents.Clear(); 
+                filteredEvents.Clear();
 
-                // Handles the search based on selected category and add to search history if it is unique
+                // Track the selected category if it's unique
                 if (!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "All")
                 {
-                    if (!uniqueSearchHistory.Contains(selectedCategory)) // Only adds to the stack if it is unique
+                    if (!uniqueSearchHistory.Contains(selectedCategory))
                     {
-                        uniqueSearchHistory.Add(selectedCategory); // Tracks unique categories in the search history
-                        searchHistory.Push(selectedCategory); // Adds to the stack
+                        uniqueSearchHistory.Add(selectedCategory);
+                        searchHistory.Push(selectedCategory);
                     }
                 }
 
-                // Searches based on the selected category
+                // Track the selected date if it's unique
+                if (selectedDate.HasValue)
+                {
+                    string dateKey = selectedDate.Value.ToShortDateString();
+                    if (!uniqueSearchHistory.Contains(dateKey))
+                    {
+                        uniqueSearchHistory.Add(dateKey);
+                        searchHistory.Push(dateKey); // Add the date to the search history
+                    }
+                }
+
+                // Filter events by category and/or date
                 if (!string.IsNullOrEmpty(selectedCategory) && selectedCategory != "All" && eventManager.EventDictionary.ContainsKey(selectedCategory))
                 {
                     var categoryEvents = eventManager.EventDictionary[selectedCategory];
@@ -72,7 +83,6 @@ namespace MunicipleServiceApp
                 }
                 else
                 {
-                    // If no category has been selected, or category is "All", searches for events by the date only
                     foreach (var evList in eventManager.EventDictionary.Values)
                     {
                         foreach (var ev in evList)
@@ -86,7 +96,7 @@ namespace MunicipleServiceApp
                     }
                 }
 
-                // Error message
+                // Show error message if no events match
                 if (filteredEvents.Count == 0)
                 {
                     MessageBox.Show("No events found matching your criteria.", "No Results", MessageBoxButton.OK, MessageBoxImage.Information);

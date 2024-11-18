@@ -14,7 +14,6 @@ namespace MunicipleServiceApp.Models
         public string Status { get; set; }
         public DateTime LastUpdated { get; set; }
 
-        // List of dependencies (Adjacent nodes in the graph)
         public List<ServiceRequest> Dependencies { get; set; }
 
         public ServiceRequest()
@@ -24,7 +23,7 @@ namespace MunicipleServiceApp.Models
 
         public int CompareTo(ServiceRequest other)
         {
-            return ID.CompareTo(other.ID); // Sorting by ID by default
+            return ID.CompareTo(other.ID); 
         }
     }
 }

@@ -16,15 +16,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Header -->
         <StackPanel Orientation="Horizontal" Margin="10">
             <Button Content="Back to Main Menu" Width="150" Height="40" Background="#FF6C6C" Foreground="Black" FontWeight="Bold"
                     Click="BackToMainMenu_Click" />
-            <TextBlock Text="Service Request Status" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"
+            <TextBlock Text="Service Request Status" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center"
                        VerticalAlignment="Center" Margin="100,0,0,0" />
         </StackPanel>
 
-        <!-- Filter Section -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
             <Grid>
                 <TextBlock Text="Request ID" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"
@@ -37,7 +35,17 @@
                 <ComboBoxItem Content="All Types" />
                 <ComboBoxItem Content="Water Leak" />
                 <ComboBoxItem Content="Electricity Outage" />
-                <ComboBoxItem Content="Potholes" />
+                <ComboBoxItem Content="Potholes"/>
+                <ComboBoxItem Content="Road Repair"/>
+                <ComboBoxItem Content="Electricity Outage"/>
+                <ComboBoxItem Content="Pipe Blockage"/>
+                <ComboBoxItem Content="Illegal Dumping"/>
+                <ComboBoxItem Content="Tree Obstruction"/>
+                <ComboBoxItem Content="Street Light Outage"/>
+                <ComboBoxItem Content="Broken Sewer"/>
+                <ComboBoxItem Content="Water Contamination"/>
+                <ComboBoxItem Content="Steet Light Outage"/>
+                <ComboBoxItem Content="Traffic Light Issue"/>
             </ComboBox>
 
             <DatePicker x:Name="datePicker" Width="150" Height="30" Margin="0,0,10,0" />
@@ -46,22 +54,19 @@
             <Button Content="Reset" Width="100" Height="30" Background="#C0C0C0" Foreground="Black" Click="Reset_Click" />
         </StackPanel>
 
-        <!-- Content Section -->
         <Grid Grid.Row="2" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Dependencies List -->
             <StackPanel Grid.Column="0" Margin="10">
                 <TextBlock Text="Request Dependencies" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
-                <ListBox x:Name="dependenciesListBox" Background="White" BorderBrush="#FF6C6C" BorderThickness="2" />
+                <ListBox x:Name="dependenciesListBox" Background="White" BorderBrush="Black" BorderThickness="2" />
             </StackPanel>
 
-            <!-- Service Request Grid -->
             <DataGrid x:Name="serviceRequestGrid" Grid.Column="1" AutoGenerateColumns="False" HeadersVisibility="Column"
-                      Background="White" Foreground="Black" BorderBrush="#FF6C6C" BorderThickness="2"
+                      Background="White" Foreground="Black" BorderBrush="Black" BorderThickness="2"
                       SelectionChanged="serviceRequestGrid_SelectionChanged" Margin="0,0,0,227">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Request ID" Binding="{Binding ID}" Width="100" />

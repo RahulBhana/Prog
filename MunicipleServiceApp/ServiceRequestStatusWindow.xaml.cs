@@ -55,14 +55,12 @@ namespace MunicipleServiceApp
             var request17 = new ServiceRequest { ID = 17, Category = "Illegal Dumping", SubmissionDate = DateTime.Now.AddDays(-10), Status = "Resolved" };
             var request18 = new ServiceRequest { ID = 18, Category = "Water Contamination", SubmissionDate = DateTime.Now.AddDays(-15), Status = "Resolved" };
 
-            // Add nodes to the graph
             var allRequests = new[] { request1, request2, request3, request4, request5, request6, request7, request8, request9, request10, request11, request12, request13, request14, request15, request16, request17, request18 };
             foreach (var request in allRequests)
             {
                 serviceRequestGraph.AddNode(request);
             }
 
-            // Add edges (dependencies)
             serviceRequestGraph.AddEdge(request1, request2); // Request 1 depends on Request 2
             serviceRequestGraph.AddEdge(request3, request1); // Request 3 depends on Request 1
             serviceRequestGraph.AddEdge(request4, request2); // Request 4 depends on Request 2
@@ -81,7 +79,6 @@ namespace MunicipleServiceApp
             serviceRequestGraph.AddEdge(request17, request16); // Request 17 depends on Request 16
             serviceRequestGraph.AddEdge(request18, request17); // Request 18 depends on Request 17
 
-            // Populate dependencies for display
             foreach (var request in allRequests)
             {
                 foreach (var dependency in serviceRequestGraph.GetNeighbors(request))
@@ -96,22 +93,19 @@ namespace MunicipleServiceApp
 
         private void DisplayAllRequests()
         {
-            // Flatten graph nodes into a list
             var allRequests = serviceRequestGraph.Nodes.ToList();
 
-            // Bind to DataGrid
             serviceRequestGrid.ItemsSource = allRequests.Select(r => new
             {
                 r.ID,
                 r.Category,
-                SubmissionDate = r.SubmissionDate.ToString("yyyy-MM-dd"), // Remove time part
+                SubmissionDate = r.SubmissionDate.ToString("yyyy-MM-dd"), 
                 r.Status
             });
         }
 
         private void DisplayDependencies(ServiceRequest selectedRequest)
         {
-            // Get dependencies for the selected request
             if (selectedRequest.Dependencies.Any())
             {
                 dependenciesListBox.ItemsSource = selectedRequest.Dependencies.Select(d => $"Dependency ID: {d.ID} - {d.Category}");
@@ -149,13 +143,13 @@ namespace MunicipleServiceApp
                     {
                         r.ID,
                         r.Category,
-                        SubmissionDate = r.SubmissionDate.ToString("yyyy-MM-dd"), // Remove time part
+                        SubmissionDate = r.SubmissionDate.ToString("yyyy-MM-dd"), 
                         r.Status
                     });
             }
             else
             {
-                DisplayAllRequests(); // Show all requests if no specific category is selected
+                DisplayAllRequests(); 
             }
         }
 
@@ -163,7 +157,7 @@ namespace MunicipleServiceApp
         {
             requestIDTextBox.Clear();
             typeComboBox.SelectedIndex = 0; // Reset to "All Types"
-            datePicker.SelectedDate = null; // Clear the date picker
+            datePicker.SelectedDate = null; 
             DisplayAllRequests();
         }
 
@@ -177,7 +171,6 @@ namespace MunicipleServiceApp
 
         private void requestIDTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Show or hide the placeholder text based on the TextBox input
             PlaceholderRequestID.Visibility = string.IsNullOrWhiteSpace(requestIDTextBox.Text)
                 ? Visibility.Visible
                 : Visibility.Collapsed;

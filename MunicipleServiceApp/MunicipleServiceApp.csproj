@@ -12,6 +12,7 @@
     <None Remove="Images\Cloud.png" />
     <None Remove="Images\Corruption.png" />
     <None Remove="Images\Dirt.png" />
+    <None Remove="Images\Hallowed.png" />
     <None Remove="Images\j92bu1kvqyh11.png" />
     <None Remove="Images\KingSlimeCT3.gif" />
     <None Remove="Images\Pot2.png" />
@@ -29,6 +30,7 @@
     <Resource Include="Images\Cloud.png" />
     <Resource Include="Images\Corruption.png" />
     <Resource Include="Images\Dirt.png" />
+    <Resource Include="Images\Hallowed.png" />
     <Resource Include="Images\j92bu1kvqyh11.png" />
     <Resource Include="Images\KingSlimeCT3.gif" />
     <Resource Include="Images\Pot1.png" />

@@ -31,7 +31,7 @@ namespace MunicipleServiceApp
 
         private void LoadRecommendations(Stack<string> searchHistory, HashSet<string> uniqueSearchHistory)
         {
-            var allEvents = eventManager.EventDictionary.Values.SelectMany(e => e).ToList(); 
+            var allEvents = eventManager.EventDictionary.Values.SelectMany(e => e).ToList();
 
             if (allEvents.Count == 0)
             {
@@ -39,20 +39,31 @@ namespace MunicipleServiceApp
                 return;
             }
 
-            // Initializes the queue to hold recommended events
+            // Initialize the queue for recommended events
             recommendedEventsQueue = new Queue<EventManager.Event>();
 
             List<EventManager.Event> possibleRecommendations = new List<EventManager.Event>();
 
-            foreach (var category in uniqueSearchHistory)
+            foreach (var searchKey in uniqueSearchHistory)
             {
-                // Filter events by category and adds to possible recommendations list
+                // Check if the search key is a category or a date
+                DateTime dateKey;
+                bool isDate = DateTime.TryParse(searchKey, out dateKey);
+
                 foreach (var ev in allEvents)
                 {
-                    if (ev.Category == category && !uniqueRecommendations.Contains(ev)) // Avoids duplicates
+                    // If the search key is a category, match the category
+                    if (!isDate && ev.Category == searchKey && !uniqueRecommendations.Contains(ev))
                     {
-                        uniqueRecommendations.Add(ev); // Adds to HashSet to ensure that there are no duplicate recommendations
-                        possibleRecommendations.Add(ev); // Adds event to possible recommendations list
+                        uniqueRecommendations.Add(ev);
+                        possibleRecommendations.Add(ev);
+                    }
+
+                    // If the search key is a date, match the event date
+                    if (isDate && ev.EventDate == dateKey && !uniqueRecommendations.Contains(ev))
+                    {
+                        uniqueRecommendations.Add(ev);
+                        possibleRecommendations.Add(ev);
                     }
                 }
             }
